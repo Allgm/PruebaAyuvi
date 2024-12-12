@@ -19,11 +19,12 @@ workflows:
           xcodebuild -list
       - name: Run iOS build
         script: |
-          cd ios/App
-          xcodebuild -workspace App.xcworkspace \
-            -scheme App \
-            -sdk iphoneos \
-            -configuration Release \
-            -archivePath $PWD/build/App.xcarchive archive
+         cd ios/App
+         xcodebuild -workspace App.xcworkspace \
+        -scheme [Esquema_Correcto] \
+        -sdk iphoneos \
+        -configuration Release \
+        -archivePath $PWD/build/App.xcarchive archive
+
     artifacts:
       - build/**/*.ipa
