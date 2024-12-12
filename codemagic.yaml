@@ -3,9 +3,6 @@ workflows:
     name: Build iOS app
     environment:
       xcode: latest
-    triggering:
-      events:
-        - push
     scripts:
       - name: Install dependencies
         script: |
@@ -16,6 +13,10 @@ workflows:
       - name: Sync Capacitor
         script: |
           ionic capacitor copy ios
+      - name: List available schemes
+        script: |
+          cd ios/App
+          xcodebuild -list
       - name: Run iOS build
         script: |
           cd ios/App
@@ -24,9 +25,5 @@ workflows:
             -sdk iphoneos \
             -configuration Release \
             -archivePath $PWD/build/App.xcarchive archive
-      - name: List available schemes
-        script: |
-          cd ios/App
-          xcodebuild -list
     artifacts:
       - build/**/*.ipa
