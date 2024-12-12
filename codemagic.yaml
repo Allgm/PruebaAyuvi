@@ -2,8 +2,6 @@ workflows:
   ios-build:
     name: Build iOS app
     environment:
-      vars:
-        # Add any environment variables your app might need here
       xcode: latest
     triggering:
       events:
