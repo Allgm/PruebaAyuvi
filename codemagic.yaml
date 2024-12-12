@@ -28,3 +28,5 @@ workflows:
             script: |
              cd ios/App
              xcodebuild -list
+    artifacts:
+      - build/**/*.ipa
